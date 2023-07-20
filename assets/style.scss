@@ -1,0 +1,906 @@
+$primary-deep: #BF360C;
+$color-two: #fed18c;
+$color-three: #30bced;
+$primary:#FB8C00;
+$secondary:#30bced;
+$success:#00C853;
+$danger:#ff1744;
+$warning:#FFAB40;
+$info:#00B0FF;
+$light:#fff;
+$dark:#212121;
+$s6px: 6px;
+$s8px: 8px;
+$s10px: 10px;
+$s12px: 12px;
+$s14px: 14px;
+$s16px: 16px;
+$s18px: 18px;
+$s20px: 20px;
+$s22px: 22px;
+$s24px: 24px;
+$s26px: 26px;
+$s28px: 28px;
+$s32px: 32px;
+$s36px: 36px;
+$s40px: 40px;
+$s44px: 44px;
+$s48px: 48px;
+$impo: !important;
+@mixin left-right($size) {
+  left: $size;
+  right: $size;
+}
+
+@mixin bg-opacity($color, $opacity: 0.3) {
+  background: rgba($color, $opacity);
+}
+
+* {
+  margin: 0;
+  padding: 0
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit
+}
+
+html {
+  overflow-x: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
+
+html {
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent
+}
+
+html.no-scroll {
+  overflow: hidden
+}
+
+html::-webkit-scrollbar {
+  width: 6px
+}
+
+html::-webkit-scrollbar-track {
+  background: #f5f5f5
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #9e9e9e
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #607d8b
+}
+
+body {
+  font-family: 'Montserrat'!important;
+  font-size: 13px;
+  font-weight: normal;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 116px 0 0!important;
+  cursor: default;
+  color: #353333;
+  background-color: #f8f8fa;
+}
+
+img {
+  max-width: 100%;
+}
+
+b,
+strong {
+  font-weight: 600
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 600;
+  position: relative;
+  margin: 0;
+  padding: 0
+}
+
+h1 {
+  font-size: 36px
+}
+
+h2 {
+  font-size: 32px
+}
+
+h3 {
+  font-size: 28px
+}
+
+h4 {
+  font-size: 24px
+}
+
+h5 {
+  font-size: 20px
+}
+
+h6 {
+  font-size: 16px
+}
+
+a,
+a:focus,
+a:hover {
+  transition: .2s ease;
+  text-decoration: none;
+  color: #444
+}
+
+a:not([href]) {
+  cursor: pointer;
+  transition: .2s ease;
+  text-decoration: none!important;
+  color: inherit
+}
+
+a:not([href]):not([tabindex]) {
+  cursor: pointer;
+  transition: .2s ease;
+  text-decoration: none!important;
+  color: inherit
+}
+
+a:not([href]):not([tabindex]):focus,
+a:not([href]):not([tabindex]):hover {
+  transition: .2s ease;
+  text-decoration: none!important;
+  color: inherit
+}
+
+a:not([href]):not([tabindex]):focus {
+  transition: .2s ease;
+  outline: 0
+}
+
+a:hover,
+a:not([href]):not([tabindex]):hover,
+a:not([href]):hover {
+  color: $primary;
+}
+
+@mixin text-color($name, $name-code) {
+  .color-#{$name} {
+    color: $name-code;
+  }
+}
+
+@include text-color("primary", $primary $impo);
+@include text-color("secondary", $secondary $impo);
+@include text-color("success", $success $impo);
+@include text-color("danger", $danger $impo);
+@include text-color("warning", $warning $impo);
+@include text-color("info", $info $impo);
+@include text-color("light", $light $impo);
+@include text-color("dark", $dark $impo);
+.clear {
+  display: block;
+  clear: both;
+}
+
+.container,
+.fab,
+.fal,
+.far,
+.fas {
+  position: relative;
+}
+
+.container.loss {
+  max-width: unset;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.margin-t50 {
+  margin-top: 52px;
+}
+
+.padding-t50 {
+  padding-top: 52px;
+}
+
+.panel {
+  position: relative;
+  z-index: unset;
+  margin-bottom: 24px!important;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative!important;
+  box-shadow: 0 3px 20px -4px rgba(0, 0, 0, .1);
+  border: 0
+}
+
+.btn {
+  border: 0;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 11px 18px;
+  line-height: unset;
+  &.btn-pill {
+    border-radius: 200px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  &.btn-icon span {}
+  &.btn-icon-right span {
+    margin-left: 6px;
+    margin-right: 0;
+  }
+  &.btn-icon-left span {
+    margin-right: 6px;
+  }
+  &.btn-icon-align-right span {
+    float: right;
+    position: relative;
+    bottom: -3px;
+  }
+  &.btn-xs {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+  &.btn-sm {
+    font-size: 10px;
+    padding: 7px 15px;
+  }
+  &.btn-lg {
+    font-size: 16px;
+    padding: 14px 24px;
+  }
+  &:active,
+  &:focus {
+    box-shadow: unset $impo;
+  }
+  &:hover {
+    box-shadow: 0 0 0 200px inset rgba(0, 0, 0, .075) $impo;
+  }
+}
+
+.dropdown-menu {
+  font-size: $s12px;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-top: 2px solid $primary;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 3px 20px -3px rgba(0, 0, 0, .1);
+  margin-top: 12px;
+  padding: 12px;
+  .dropdown-item {
+    padding: 9px 12px;
+    min-width: 260px;
+    border-radius: 5px;
+    &:hover {
+      background-color: rgba(0, 0, 0, .05);
+    }
+    &:focus,
+    &:active {
+      color: unset $impo;
+    }
+    &.regis-dropdown {
+      background-color: transparent$impo;
+      padding: 8px;
+      width: 280px;
+      &::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        right: 28px;
+        top: -22px;
+        width: 20px;
+        border: 10px solid transparent;
+        border-bottom: 12px solid $primary;
+      }
+      h6 {
+        margin-bottom: 16px;
+      }
+      .regis {
+        border-top: 1px dashed #ddd;
+        margin: 20px -20px -20px;
+        padding: 20px;
+      }
+    }
+  }
+}
+
+.alert {
+  border-radius: 5px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 1px 6px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: unset;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 5px;
+  transition: .25s ease;
+  &.badge-pill {
+    padding: 1px 8px;
+    border-radius: 20px;
+  }
+}
+
+@mixin colors($name, $name-code) {
+  .btn-#{$name},
+  .badge-#{$name} {
+    background-color: $name-code;
+  }
+}
+
+@include colors("primary", $primary $impo);
+@include colors("secondary", $secondary $impo);
+@include colors("success", $success $impo);
+@include colors("danger", $danger $impo);
+@include colors("warning", $warning $impo);
+@include colors("info", $info $impo);
+@include colors("light", $light $impo);
+@include colors("dark", $dark $impo);
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 4px 20px -3px rgba(0, 0, 0, .1);
+  padding: $s12px 0;
+  height: unset;
+  min-height: $s44px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  span {
+    color: $primary;
+  }
+  .dasbor {
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    top: -2px;
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 1px solid #ccc;
+  }
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  line-height: 1;
+  font-size: $s12px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: unset;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px inset #ced4da $impo;
+  &:focus {
+    box-shadow: 0 0 0 1px inset $primary $impo;
+  }
+}
+
+.form-check input:checked {
+  ~.custom-mark {
+    background-color: $primary;
+  }
+}
+
+.custom-form .form-group .form-control:focus~label,
+.custom-form .form-group .form-control.active~label,
+.custom-form .form-group .form-control:not(:placeholder-shown)~label,
+.custom-form .form-group .form-control.active~label {
+  color: $primary;
+}
+
+.fik-carousel-info {
+  background-color: #000;
+  margin-top: -52px;
+  overflow: hidden;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+  .item {
+    position: relative;
+    height: 680px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+      z-index: 0;
+      opacity: .5;
+      filter: grayscale(15%) contrast(80%) brightness(90%);
+    }
+    .item-text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      z-index: 1;
+      padding: 0 24px;
+      text-align: center;
+      width: 100%;
+      text-shadow: 1px 2px 5px rgba(0, 0, 0, .1);
+      margin-top: -40px;
+    }
+  }
+  .owl-dots {
+    bottom: 140px;
+  }
+}
+
+.fik-about-overview {
+  margin-top: -100px;
+  position: relative;
+  z-index: 1;
+  .panel {
+    padding: $s40px;
+    padding-right: 50%;
+    border-radius: 12px;
+    box-shadow: 0 3px 25px -2px rgba(0, 0, 0, .15);
+    margin-bottom: 0 $impo;
+  }
+  .content-left {
+    padding-right: 40px;
+  }
+  h6 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+  h4 {
+    margin: 26px 0;
+  }
+  p {
+    height: 57px;
+    overflow: hidden;
+  }
+  a.btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    letter-spacing: 2px;
+    margin-top: 37px;
+  }
+  video {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    width: 50%;
+    border-radius: 6px;
+  }
+}
+
+.fik-custom-table {
+  .table {
+    thead {
+      display: block;
+      width: 100%;
+      tr {
+        border: 0;
+        display: block;
+        width: 100%;
+        border-bottom: 2px solid #ddd;
+        th {
+          border: 0;
+        }
+        &:after {
+          clear: both;
+          content: ' ';
+          display: block;
+        }
+      }
+    }
+    tbody {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      tr {
+        display: block;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .065);
+        margin-top: 8px;
+        border-radius: 6px;
+        &:after {
+          clear: both;
+          content: ' ';
+          display: block;
+        }
+        td {
+          border: 0;
+          margin-top: 5px;
+        }
+      }
+    }
+    tr {
+      td,
+      th {
+        width: 20%;
+        float: left;
+        &.status {
+          text-align: right;
+          margin-top: 0;
+          .badge {
+            width: 116px;
+            padding: 6px 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  margin: auto auto 0;
+  position: relative;
+  width: 100%;
+}
+
+.fik-footer {
+  background-color: #263238;
+  .container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    color: #fff
+  }
+  .cleft {
+    float: left;
+    width: 45%;
+    padding-right: 50px;
+    h4 {
+      margin: 6px 0 20px;
+    }
+    ul li {
+      list-style: none;
+      margin-top: 8px;
+      .fab {
+        font-size: 18px;
+        top: 2px;
+        margin-right: 8px;
+      }
+    }
+  }
+  .cright {
+    float: right;
+    background-color: #fff;
+    width: 55%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px
+  }
+  .credit {
+    background-color: #fff;
+    text-align: center;
+    padding: 22px 0;
+  }
+}
+
+.fik-section-title {
+  position: relative;
+  margin-bottom: 24px;
+  &::after {
+    content: ' ';
+    display: block;
+    border-bottom: 2px solid $primary;
+    width: 52px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  h3 {
+    margin-bottom: 6px;
+  }
+}
+
+.fik-lab-div {
+  .lab-content {
+    margin: 0 -12px;
+  }
+  .owl-carousel .owl-nav {
+    margin-top: 12px;
+  }
+  .fik-lab-div-list {
+    .item {
+      margin: 12px;
+      position: relative;
+      z-index: unset;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 3px 12px -4px rgba(0, 0, 0, .15);
+      overflow: hidden;
+      .gambar {
+        height: 360px;
+        overflow: hidden;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 8px;
+        }
+      }
+      .item-text {
+        padding: 20px;
+        p {
+          height: 57px;
+          overflow: hidden;
+          margin: 16px 0 28px;
+        }
+      }
+    }
+  }
+}
+
+.fik-feed {
+  .feed-container {
+    margin: 0 -12px;
+    &::after {
+      display: block;
+      clear: both;
+      content: ' ';
+    }
+    .feed-item {
+      float: left;
+      width: 33.333%;
+      padding: 10px;
+      .gambar {
+        height: 200px;
+        overflow: hidden;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 8px;
+        }
+      }
+      .item-text {
+        padding: 20px;
+        text-align: left;
+        p {
+          overflow: hidden;
+          margin: 16px 0 28px;
+          font-size: 10px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  &.galeri-karya {
+    .feed-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .feed-item {
+      width: 25%;
+      .gambar {
+        height: 259px;
+      }
+      .panel {
+        height: 100%;
+        padding-bottom: 16px;
+      }
+      .item-text {
+        text-align: center;
+        h6 {
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+      }
+      .vote {
+        padding: 20px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        a {
+          margin-left: 8px;
+          display: inline-block;
+          font-size: 10px;
+          font-weight: 600;
+          .fas {
+            font-size: 14px;
+            top: 1px;
+            margin-right: 4px;
+          }
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fik-show-more-btn {
+  background: rgba($primary, .2) $impo;
+  color: $primary-deep $impo;
+}
+
+.fik-carousel-karya {
+  border-radius: 12px;
+  overflow: hidden;
+  .item {
+    position: relative;
+    height: 360px;
+    &::after {
+      opacity: 1;
+      background: linear-gradient(to top, rgba(0, 0, 0, .5) 0, transparent 50%);
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+      z-index: 0;
+    }
+    p {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: rgba(0, 0, 0, .35);
+      color: #fff;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+    }
+  }
+}
+
+.prodi-cat {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px -10px;
+  &::after {
+    display: block;
+    content: ' ';
+    clear: both;
+  }
+  li {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    position: relative;
+    &.active::after {
+      display: block;
+      content: ' ';
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-top: 2px solid #fff;
+      width: 40px;
+      z-index: 1;
+    }
+    a {
+      height: 100%;
+      color: #fff!important;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1.2;
+      padding: 16px;
+      position: relative;
+      border-radius: 6px;
+      &.dkv-color {
+        background-color: #46AFDC;
+      }
+      &.dp-color {
+        background-color: #E3844F;
+      }
+      &.di-color {
+        background-color: #43BB85;
+      }
+      &.ktm-color {
+        background-color: #D73588;
+      }
+      &.sr-color {
+        background-color: #7E7F80;
+      }
+      &.mds-color {
+        background-color: #AD3131;
+      }
+      b {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 0 16px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      span {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.pembuat-karya {
+  border-bottom: 1px dashed #bbb;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  padding-right: 35%;
+  position: relative;
+  &::after {
+    content: ' ';
+    display: block;
+    clear: both;
+  }
+  h6 {
+    margin-bottom: 4px;
+  }
+  .stat-vote {
+    position: absolute;
+    right: 0;
+    top: 6px;
+    a {
+      margin-left: 12px;
+    }
+    .fas {
+      font-size: 18px;
+      top: 2px;
+      margin-right: 4px;
+    }
+  }
+}
+
+.karya {
+  border-bottom: 1px dashed #bbb;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  .caption {
+    margin-top: 24px;
+  }
+}
+
+.akun-container{
+  padding-left:260px;
+}
+
+.fik-db-side-menu {
+  background-color: #3D3029;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  z-index: 1;
+}
